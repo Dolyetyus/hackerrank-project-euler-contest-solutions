@@ -4,25 +4,19 @@ using System.IO;
 using System.Linq;
 class Solution {
 
-    static void Main(String[] args) {
-        int t = Convert.ToInt32(Console.ReadLine());
-        for(int a0 = 0; a0 < t; a0++){
-            uint n = uint.Parse(Console.ReadLine());
-            Printnumb(n);
-        }
-    }
-    
-    static void Printnumb(uint n)
+    static void Main()
     {
-        long sum = 0;
-        n--;
+        long N, num, three, five, fifteen = 0;
+        N = long.Parse(Console.ReadLine());
 
-        int sum3 = (3 * (int)((n / 3) * ((n / 3) + 1))) / 2;
-        int sum5 = (5 * (int)((n / 5) * ((n / 5) + 1))) / 2;
-        int sum15 = (15 * (int)((n / 15) * ((n / 15) + 1))) / 2;
+        for (int i = 0; i < N; i++)
+        {
+            num = long.Parse(Console.ReadLine());
+            three = (num - 1) / 3;
+            five = (num - 1) / 5;
+            fifteen = (num - 1) / 15;
 
-        sum = sum3 + sum5 - sum15;
-
-        Console.WriteLine(sum);
+            Console.WriteLine(3 * (three * (three + 1) / 2) + 5 * (five * (five + 1) / 2) - 15 * (fifteen * (fifteen + 1) / 2));
+        }
     }
 }
